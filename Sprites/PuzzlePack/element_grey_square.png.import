@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_grey_square.png-6e0c5d6ae1a0a38b4d5cebd89af1eec5.stex"
+path="res://.import/element_grey_square.png-fd39e7777d3616cb95eeede790f8dbbe.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/element_grey_square.png"
-dest_files=[ "res://.import/element_grey_square.png-6e0c5d6ae1a0a38b4d5cebd89af1eec5.stex" ]
+source_file="res://sprites/PuzzlePack/element_grey_square.png"
+dest_files=[ "res://.import/element_grey_square.png-fd39e7777d3616cb95eeede790f8dbbe.stex" ]
 
 [params]
 

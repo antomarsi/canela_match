@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ballBlue.png-fdd6888fd740ca8288cf61ac71f63a86.stex"
+path="res://.import/ballBlue.png-583098f7e783c18b228b52ac7130d2f6.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/ballBlue.png"
-dest_files=[ "res://.import/ballBlue.png-fdd6888fd740ca8288cf61ac71f63a86.stex" ]
+source_file="res://sprites/PuzzlePack/ballBlue.png"
+dest_files=[ "res://.import/ballBlue.png-583098f7e783c18b228b52ac7130d2f6.stex" ]
 
 [params]
 

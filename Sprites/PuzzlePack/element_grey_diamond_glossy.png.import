@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_grey_diamond_glossy.png-6cb4a1832a00f5a34b84e4f25747fc50.stex"
+path="res://.import/element_grey_diamond_glossy.png-37fbc2722be4a80e6b579d29ce6aa60c.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/element_grey_diamond_glossy.png"
-dest_files=[ "res://.import/element_grey_diamond_glossy.png-6cb4a1832a00f5a34b84e4f25747fc50.stex" ]
+source_file="res://sprites/PuzzlePack/element_grey_diamond_glossy.png"
+dest_files=[ "res://.import/element_grey_diamond_glossy.png-37fbc2722be4a80e6b579d29ce6aa60c.stex" ]
 
 [params]
 

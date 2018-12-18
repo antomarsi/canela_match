@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "GridExtents",
+"language": "GDScript",
+"path": "res://scripts/GridExtents.gd"
+} ]
 _global_script_class_icons={
-
+"GridExtents": ""
 }
 
 [application]
 
 config/name="CyberPony-Match"
+run/main_scene="res://scenes/Game.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -25,6 +31,10 @@ window/size/test_width=512
 window/size/test_height=288
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "grid_gizmo" )
 
 [input]
 

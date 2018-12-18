@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_purple_diamond.png-29ba9e3dda95c620f3381e49e6c86ced.stex"
+path="res://.import/element_purple_diamond.png-fc54f931e9342b4d905fdf53ddd76a58.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/element_purple_diamond.png"
-dest_files=[ "res://.import/element_purple_diamond.png-29ba9e3dda95c620f3381e49e6c86ced.stex" ]
+source_file="res://sprites/PuzzlePack/element_purple_diamond.png"
+dest_files=[ "res://.import/element_purple_diamond.png-fc54f931e9342b4d905fdf53ddd76a58.stex" ]
 
 [params]
 

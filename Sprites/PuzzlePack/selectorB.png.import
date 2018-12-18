@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/selectorB.png-80ff80c0e766fb5fa0b2217724ffcf1d.stex"
+path="res://.import/selectorB.png-80eef9e7e09ebb1c81c756a6fd901e6e.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/selectorB.png"
-dest_files=[ "res://.import/selectorB.png-80ff80c0e766fb5fa0b2217724ffcf1d.stex" ]
+source_file="res://sprites/PuzzlePack/selectorB.png"
+dest_files=[ "res://.import/selectorB.png-80eef9e7e09ebb1c81c756a6fd901e6e.stex" ]
 
 [params]
 

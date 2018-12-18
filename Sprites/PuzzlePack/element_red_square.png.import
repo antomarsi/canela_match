@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_red_square.png-9b051247655f6611b21b05841b8bea88.stex"
+path="res://.import/element_red_square.png-ba4188cadfca7aa26e1624dbf1c43f61.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/element_red_square.png"
-dest_files=[ "res://.import/element_red_square.png-9b051247655f6611b21b05841b8bea88.stex" ]
+source_file="res://sprites/PuzzlePack/element_red_square.png"
+dest_files=[ "res://.import/element_red_square.png-ba4188cadfca7aa26e1624dbf1c43f61.stex" ]
 
 [params]
 

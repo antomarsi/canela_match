@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background3.png-91253554277cf0be8ce0ef4de7ab8853.stex"
+path="res://.import/background3.png-747afe8f75c62970ecac4dcb8599ccb2.stex"
 
 [deps]
 
-source_file="res://Sprites/background3.png"
-dest_files=[ "res://.import/background3.png-91253554277cf0be8ce0ef4de7ab8853.stex" ]
+source_file="res://sprites/background3.png"
+dest_files=[ "res://.import/background3.png-747afe8f75c62970ecac4dcb8599ccb2.stex" ]
 
 [params]
 

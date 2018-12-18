@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/buttonSelected_right.png-2bd8695986daf8de40b226aa1f9cd71d.stex"
+path="res://.import/buttonSelected_right.png-1e5ebe9ec257bcfaf9fcc9227c8c082c.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/buttonSelected_right.png"
-dest_files=[ "res://.import/buttonSelected_right.png-2bd8695986daf8de40b226aa1f9cd71d.stex" ]
+source_file="res://sprites/PuzzlePack/buttonSelected_right.png"
+dest_files=[ "res://.import/buttonSelected_right.png-1e5ebe9ec257bcfaf9fcc9227c8c082c.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/particleStar.png-2e2abe2a62e2fcae4a36e5d34e64003b.stex"
+path="res://.import/particleStar.png-69f7009cc122c1ad0e2d5a8d03f9b62d.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/particleStar.png"
-dest_files=[ "res://.import/particleStar.png-2e2abe2a62e2fcae4a36e5d34e64003b.stex" ]
+source_file="res://sprites/PuzzlePack/particleStar.png"
+dest_files=[ "res://.import/particleStar.png-69f7009cc122c1ad0e2d5a8d03f9b62d.stex" ]
 
 [params]
 

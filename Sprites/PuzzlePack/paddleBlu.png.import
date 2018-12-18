@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/paddleBlu.png-f58372003b8c278b5c99c69096c0c0ce.stex"
+path="res://.import/paddleBlu.png-d5627f3642335997d95372e4fc256d2b.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/paddleBlu.png"
-dest_files=[ "res://.import/paddleBlu.png-f58372003b8c278b5c99c69096c0c0ce.stex" ]
+source_file="res://sprites/PuzzlePack/paddleBlu.png"
+dest_files=[ "res://.import/paddleBlu.png-d5627f3642335997d95372e4fc256d2b.stex" ]
 
 [params]
 

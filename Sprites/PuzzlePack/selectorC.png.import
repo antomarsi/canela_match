@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/selectorC.png-6cca92f0bed642e8c4d4fd8bf4848735.stex"
+path="res://.import/selectorC.png-1b68e8eec0ea3f1caa7cefee0b4b881a.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/selectorC.png"
-dest_files=[ "res://.import/selectorC.png-6cca92f0bed642e8c4d4fd8bf4848735.stex" ]
+source_file="res://sprites/PuzzlePack/selectorC.png"
+dest_files=[ "res://.import/selectorC.png-1b68e8eec0ea3f1caa7cefee0b4b881a.stex" ]
 
 [params]
 

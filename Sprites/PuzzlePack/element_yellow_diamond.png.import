@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_yellow_diamond.png-893cd2b5f71444583c99c11a225c06c9.stex"
+path="res://.import/element_yellow_diamond.png-610841d503f6cf2c69f384c8a2aafba3.stex"
 
 [deps]
 
-source_file="res://Sprites/PuzzlePack/element_yellow_diamond.png"
-dest_files=[ "res://.import/element_yellow_diamond.png-893cd2b5f71444583c99c11a225c06c9.stex" ]
+source_file="res://sprites/PuzzlePack/element_yellow_diamond.png"
+dest_files=[ "res://.import/element_yellow_diamond.png-610841d503f6cf2c69f384c8a2aafba3.stex" ]
 
 [params]
 
