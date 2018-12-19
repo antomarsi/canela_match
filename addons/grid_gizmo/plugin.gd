@@ -19,6 +19,7 @@ const FILL_COLOR = Color("#FFFFFF")
 const SQUARE_COLOR : Array = [Color(1, 1, 1, 0.5),  Color(0.5, 0.5, 0.5, 0.5)]
 
 func edit(object : Object) -> void:
+	print("edit %s" % object.get_path())
 	grid_extents = object
 
 func make_visible(visible : bool) -> void:

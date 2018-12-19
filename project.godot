@@ -12,16 +12,22 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "GridExtents",
 "language": "GDScript",
-"path": "res://scripts/GridExtents.gd"
+"path": "res://script/GridExtents.gd"
+}, {
+"base": "Node2D",
+"class": "Piece",
+"language": "GDScript",
+"path": "res://script/Piece.gd"
 } ]
 _global_script_class_icons={
-"GridExtents": ""
+"GridExtents": "",
+"Piece": ""
 }
 
 [application]
 
 config/name="CyberPony-Match"
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scene/Game.tscn"
 config/icon="res://icon.png"
 
 [display]
