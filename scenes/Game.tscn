@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sprites/background1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=2]
@@ -10,13 +10,8 @@
 [ext_resource path="res://sprites/background8.png" type="Texture" id=8]
 [ext_resource path="res://sprites/car.png" type="Texture" id=9]
 [ext_resource path="res://scripts/grid_manager.gd" type="Script" id=10]
-[ext_resource path="res://scenes/Pieces/BluePiece.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/Pieces/GreenPiece.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/Pieces/PurplePiece.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Pieces/RedPiece.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/Pieces/YellowPiece.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scripts/grid_extents.gd" type="Script" id=16]
-[ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scripts/grid_extents.gd" type="Script" id=11]
+[ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -44,21 +39,30 @@ texture = ExtResource( 9 )
 
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource( 10 )
-possible_pieces = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]
 
 [node name="GridExtends" type="Node2D" parent="Map"]
-position = Vector2( 702, 197 )
-script = ExtResource( 16 )
+position = Vector2( 384.931, 383.232 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
-size = Vector2( 608, 350 )
 color = Color( 1, 0.054902, 0.654902, 1 )
-offset = Vector2( 0, 0 )
 piece_size = Vector2( 64, 64 )
+width = 10
+height = 8
 
 [node name="Pieces" type="Node2D" parent="Map/GridExtends"]
 
-[node name="SwipeDetector" parent="Map/GridExtends" instance=ExtResource( 17 )]
+[node name="SwipeDetector" parent="Map/GridExtends" instance=ExtResource( 12 )]
+
+[node name="DestroyTimer" type="Timer" parent="Map"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollapseTimer" type="Timer" parent="Map"]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="swiped" from="Map/GridExtends/SwipeDetector" to="Map" method="_on_SwipeDetector_swiped"]
+[connection signal="timeout" from="Map/DestroyTimer" to="Map" method="_on_DestroyTimer_timeout"]
+[connection signal="timeout" from="Map/CollapseTimer" to="Map" method="_on_CollapseTimer_timeout"]

@@ -66,24 +66,26 @@ func forward_canvas_draw_over_viewport(overlay: Control) -> void:
 		}
 		draw_anchor(new_anchor, overlay)
 		anchors.append(new_anchor)
-	var top_left = transform_viewport * (transform_global * edit_anchors.get(Anchors.TOP_LEFT))
-	var bottom_right = transform_viewport * (transform_global * edit_anchors.get(Anchors.BOTTOM_RIGHT))
-	draw_squares(top_left, bottom_right, overlay)
+	draw_squares(edit_anchors, overlay)
 
 func draw_anchor(anchor : Dictionary, overlay : Control) -> void:
 	var pos = anchor['position']
 	overlay.draw_circle(pos, CIRCLE_RADIUS + STROKE_RADIUS, STROKE_COLOR)
 	overlay.draw_circle(pos, CIRCLE_RADIUS, FILL_COLOR)
 
-func draw_squares(top_left: Vector2, bottom_right: Vector2, overlay : Control) -> void:
+func draw_squares(anchors: Dictionary, overlay : Control) -> void:
 	if grid_extents.width == 0 or grid_extents.height == 0:
 		return
+	var transform_viewport : = grid_extents.get_viewport_transform()
+	var transform_global : = grid_extents.get_canvas_transform()
+	var top_left = transform_viewport * (transform_global * anchors.get(Anchors.TOP_LEFT))
+	var bottom_right = transform_viewport * (transform_global * anchors.get(Anchors.BOTTOM_RIGHT))
 	var diff = bottom_right - top_left
 	var p_x = (diff.x / grid_extents.size.x) * grid_extents.piece_size.x
 	var p_y = (diff.y / grid_extents.size.y) * grid_extents.piece_size.y
 	for y in grid_extents.height:
 		for x in grid_extents.width:
-			var rect = Rect2(Vector2(top_left.x + (x * p_x), top_left.y + (y * p_y)), Vector2(p_x, p_y))
+			var rect = Rect2(Vector2(top_left.x + (x * p_x), bottom_right.y - ((y+1) * p_y)), Vector2(p_x, p_y))
 			overlay.draw_rect(rect, SQUARE_COLOR[(y+x) % 2], true)
 
 func drag_to(event_position : Vector2) -> void:

@@ -29,7 +29,7 @@ func _end_detection(position : Vector2):
 	if abs(direction.x) > abs(direction.y):
 		emit_signal("swiped", swipe_start_position,  Vector2(sign(direction.x), 0))
 	if abs(direction.x) < abs(direction.y):
-		emit_signal("swiped", swipe_start_position, Vector2(0, sign(direction.y)))
+		emit_signal("swiped", swipe_start_position, Vector2(0, -sign(direction.y)))
 
 func _on_Timer_timeout():
 	emit_signal("swiped_cancel", swipe_start_position)
