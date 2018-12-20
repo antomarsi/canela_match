@@ -9,20 +9,8 @@ export var offset : Vector2 setget set_offset
 export var piece_size : Vector2 = Vector2(64, 64) setget set_piece_size
 
 var _rect : Rect2
-export var width : int = 10 setget set_width, get_width
-export var height : int = 8 setget set_height, get_height
-
-func set_width(value:int) -> void:
-	set_size(Vector2(piece_size.x * value, size.y))
-	
-func get_width() -> int:
-	return width
-
-func set_height(value:int) -> void:
-	set_size(Vector2(size.x, piece_size.y * value))
-	
-func get_height() -> int:
-	return height
+var width : int
+var height : int
 
 func set_piece_size(value: Vector2) -> void:
 	piece_size = value
@@ -63,7 +51,16 @@ func has_point(point : Vector2) -> bool:
 	var rect_global = Rect2(global_position + _rect.position, _rect.size)
 	return rect_global.has_point(point)
 
-func grid_to_pixel(column, row):
+func in_grid(position : Vector2) -> bool:
+	var rect = Rect2(global_position + _rect.position, Vector2(piece_size.x * width, piece_size.y * height))
+	return rect.has_point(position)
+
+func grid_to_pixel(column : int, row : int) -> Vector2:
 	var new_x = _rect.position.x + (piece_size.x * column) + (piece_size.x / 2)
 	var new_y = _rect.position.y + (piece_size.y * row) + (piece_size.y / 2)
+	return Vector2(new_x, new_y)
+
+func pixel_to_grid(position : Vector2) -> Vector2:
+	var new_x = int((position.x - (global_position.x + _rect.position.x)) / piece_size.x)
+	var new_y = int((position.y - (global_position.y + _rect.position.y)) / piece_size.y)
 	return Vector2(new_x, new_y)

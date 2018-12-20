@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sprites/background1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/Pieces/RedPiece.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/Pieces/YellowPiece.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scripts/grid_extents.gd" type="Script" id=16]
+[ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -48,12 +49,16 @@ possible_pieces = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), Ext
 [node name="GridExtends" type="Node2D" parent="Map"]
 position = Vector2( 702, 197 )
 script = ExtResource( 16 )
-size = Vector2( 576, 320 )
+__meta__ = {
+"_edit_group_": true
+}
+size = Vector2( 608, 350 )
 color = Color( 1, 0.054902, 0.654902, 1 )
 offset = Vector2( 0, 0 )
 piece_size = Vector2( 64, 64 )
-width = 9
-height = 5
 
 [node name="Pieces" type="Node2D" parent="Map/GridExtends"]
 
+[node name="SwipeDetector" parent="Map/GridExtends" instance=ExtResource( 17 )]
+
+[connection signal="swiped" from="Map/GridExtends/SwipeDetector" to="Map" method="_on_SwipeDetector_swiped"]
