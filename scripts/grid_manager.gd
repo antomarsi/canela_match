@@ -1,5 +1,6 @@
 extends Node2D
 #The Grid
+signal pieces_destroyed (pieces_destroyed)
 onready var grid = $GridExtends
 # The possible pieces
 export (Array, PackedScene) var possible_pieces : Array = [
@@ -109,12 +110,20 @@ func find_matches() -> void:
 	$DestroyTimer.start()
 
 func destroy_matched():
+	var destroyed = []
 	for i in grid.width:
 		for j in grid.height:
 			if all_pieces[i][j] != null and all_pieces[i][j].matched:
+				destroyed.append({
+					"color": all_pieces[i][j].color,
+					"pos": all_pieces[i][j].global_position
+				});
 				all_pieces[i][j].queue_free()
 				all_pieces[i][j] = null
-	$CollapseTimer.start()
+	if destroyed.size() > 0:
+		$CollapseTimer.start()
+		emit_signal("pieces_destroyed", destroyed)
+	
 
 func _on_DestroyTimer_timeout():
 	destroy_matched()
