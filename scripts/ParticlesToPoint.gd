@@ -14,3 +14,6 @@ func spawn_particles(start_pos : Vector2, end_pos : Vector2, quantity : int, col
 		print("spawn")
 		add_child(s)
 	pass
+
+func _on_Map_pieces_destroyed(pieces_destroyed):
+	pass # Replace with function body.

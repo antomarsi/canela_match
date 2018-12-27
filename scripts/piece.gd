@@ -22,3 +22,17 @@ func move(target_position : Vector2):
 func dim():
 	$Sprite.modulate.a = 0.5
 	pass
+
+func getColor() -> Color:
+	match color:
+		COLOR.BLUE:
+			return Color("#4572e3")
+		COLOR.PURPLE:
+			return Color("#494182")
+		COLOR.GREEN:
+			return Color("#8fd032")
+		COLOR.RED:
+			return Color("#b25266")
+		COLOR.YELLOW:
+			return Color("#f8c53a")
+	return Color(0, 0, 0)

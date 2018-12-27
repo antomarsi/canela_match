@@ -115,7 +115,7 @@ func destroy_matched():
 		for j in grid.height:
 			if all_pieces[i][j] != null and all_pieces[i][j].matched:
 				destroyed.append({
-					"color": all_pieces[i][j].color,
+					"color": all_pieces[i][j].getColor(),
 					"pos": all_pieces[i][j].global_position
 				});
 				all_pieces[i][j].queue_free()

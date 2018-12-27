@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://sprites/background1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=2]
@@ -12,7 +12,9 @@
 [ext_resource path="res://scripts/grid_manager.gd" type="Script" id=10]
 [ext_resource path="res://scripts/grid_extents.gd" type="Script" id=11]
 [ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/Particles/ParticlesToPoint.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/PieceFill.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sprites/PuzzlePack/element_blue_square_glossy.png" type="Texture" id=14]
+[ext_resource path="res://scenes/Particles/ParticlesToPoint.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -42,7 +44,6 @@ texture = ExtResource( 9 )
 script = ExtResource( 10 )
 
 [node name="GridExtends" type="Node2D" parent="Map"]
-editor/display_folded = true
 position = Vector2( 544.872, 545.224 )
 script = ExtResource( 11 )
 __meta__ = {
@@ -66,25 +67,16 @@ wait_time = 0.5
 one_shot = true
 
 [node name="PieceFillers" type="Node2D" parent="Map"]
+position = Vector2( 30, 38.5761 )
 
-[node name="Node2D" type="Node2D" parent="Map/PieceFillers"]
-position = Vector2( 183.156, 129.472 )
+[node name="PieceFill" parent="Map/PieceFillers" instance=ExtResource( 13 )]
+position = Vector2( 80, 91.4239 )
+texture = ExtResource( 14 )
 
-[node name="ProgressBar" type="ProgressBar" parent="Map/PieceFillers/Node2D"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -59.0
-margin_top = -7.0
-margin_right = 59.0
-margin_bottom = 7.0
-value = 50.0
-rounded = true
-percent_visible = false
+[node name="ParticlesToPoint" parent="Map/PieceFillers" instance=ExtResource( 15 )]
+position = Vector2( 40, 0 )
 
-[node name="ParticlesToPoint" parent="Map/PieceFillers" instance=ExtResource( 13 )]
-
+[connection signal="pieces_destroyed" from="Map" to="Map/PieceFillers/ParticlesToPoint" method="_on_Map_pieces_destroyed"]
 [connection signal="swiped" from="Map/GridExtends/SwipeDetector" to="Map" method="_on_SwipeDetector_swiped"]
 [connection signal="timeout" from="Map/DestroyTimer" to="Map" method="_on_DestroyTimer_timeout"]
 [connection signal="timeout" from="Map/CollapseTimer" to="Map" method="_on_CollapseTimer_timeout"]
