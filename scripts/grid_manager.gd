@@ -16,6 +16,7 @@ var all_pieces = []
 # Touch Variables
 var selected_piece : Piece
 var final_piece : Piece
+var can_move_piece : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -62,16 +63,13 @@ func spawn_pieces():
 			all_pieces[column][row] = piece
 
 func _on_SwipeDetector_swiped(start_position : Vector2, direction : Vector2) -> void:
-	print("swipe")	
 	if not grid.in_grid(start_position):
 		return
-	print("in_grid")
 	var piece_in_grid = grid.pixel_to_grid(start_position)
 	var other_piece = piece_in_grid + direction
-	print(piece_in_grid)
-	print(other_piece)
-	if other_piece.x < grid.width and other_piece.y < grid.height and other_piece.x >= 0 and other_piece.y >= 0:
+	if other_piece.x < grid.width and other_piece.y < grid.height and other_piece.x >= 0 and other_piece.y >= 0 and can_move_piece:
 		swap_pieces(piece_in_grid.x, piece_in_grid.y, direction)
+		can_move_piece = false
 
 func swap_pieces(column : int, row : int, direction : Vector2) -> void:
 	var first_piece = all_pieces[column][row]
@@ -123,6 +121,8 @@ func destroy_matched():
 	if destroyed.size() > 0:
 		$CollapseTimer.start()
 		emit_signal("pieces_destroyed", destroyed)
+	else:
+		can_move_piece = true
 	
 
 func _on_DestroyTimer_timeout():

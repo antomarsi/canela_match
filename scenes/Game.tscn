@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/background1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/background2.png" type="Texture" id=2]
@@ -8,18 +8,32 @@
 [ext_resource path="res://sprites/background6.png" type="Texture" id=6]
 [ext_resource path="res://sprites/background7.png" type="Texture" id=7]
 [ext_resource path="res://sprites/background8.png" type="Texture" id=8]
-[ext_resource path="res://sprites/car.png" type="Texture" id=9]
-[ext_resource path="res://scripts/grid_manager.gd" type="Script" id=10]
-[ext_resource path="res://scripts/grid_extents.gd" type="Script" id=11]
-[ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/PieceFill.tscn" type="PackedScene" id=13]
-[ext_resource path="res://sprites/PuzzlePack/element_blue_square_glossy.png" type="Texture" id=14]
-[ext_resource path="res://scenes/Particles/ParticlesToPoint.tscn" type="PackedScene" id=15]
+[ext_resource path="res://sprites/levels/level-1-calena1.png" type="Texture" id=9]
+[ext_resource path="res://sprites/levels/level-1-calena2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/levels/level-1-calena3.png" type="Texture" id=11]
+[ext_resource path="res://sprites/levels/level-1-calena4.png" type="Texture" id=12]
+[ext_resource path="res://sprites/levels/level-1-calena5.png" type="Texture" id=13]
+[ext_resource path="res://sprites/levels/level-1-calena6.png" type="Texture" id=14]
+[ext_resource path="res://scripts/grid_manager.gd" type="Script" id=15]
+[ext_resource path="res://scripts/grid_extents.gd" type="Script" id=16]
+[ext_resource path="res://scenes/Tools/SwipeDetector.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/PieceFill.tscn" type="PackedScene" id=18]
+[ext_resource path="res://sprites/pieces/pieces3.png" type="Texture" id=19]
+[ext_resource path="res://scenes/Particles/ParticlesToPoint.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -35,17 +49,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="car" type="Sprite" parent="."]
+[node name="car" type="AnimatedSprite" parent="."]
 position = Vector2( 315, 400 )
 scale = Vector2( 2.45138, 2.45138 )
-texture = ExtResource( 9 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
 
 [node name="Map" type="Node2D" parent="."]
-script = ExtResource( 10 )
+script = ExtResource( 15 )
 
 [node name="GridExtends" type="Node2D" parent="Map"]
 position = Vector2( 544.872, 545.224 )
-script = ExtResource( 11 )
+script = ExtResource( 16 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -56,7 +72,7 @@ height = 8
 
 [node name="Pieces" type="Node2D" parent="Map/GridExtends"]
 
-[node name="SwipeDetector" parent="Map/GridExtends" instance=ExtResource( 12 )]
+[node name="SwipeDetector" parent="Map/GridExtends" instance=ExtResource( 17 )]
 
 [node name="DestroyTimer" type="Timer" parent="Map"]
 wait_time = 0.5
@@ -69,11 +85,11 @@ one_shot = true
 [node name="PieceFillers" type="Node2D" parent="Map"]
 position = Vector2( 30, 38.5761 )
 
-[node name="PieceFill" parent="Map/PieceFillers" instance=ExtResource( 13 )]
+[node name="PieceFill" parent="Map/PieceFillers" instance=ExtResource( 18 )]
 position = Vector2( 80, 91.4239 )
-texture = ExtResource( 14 )
+texture = ExtResource( 19 )
 
-[node name="ParticlesToPoint" parent="Map/PieceFillers" instance=ExtResource( 15 )]
+[node name="ParticlesToPoint" parent="Map/PieceFillers" instance=ExtResource( 20 )]
 position = Vector2( 40, 0 )
 
 [connection signal="pieces_destroyed" from="Map" to="Map/PieceFillers/ParticlesToPoint" method="_on_Map_pieces_destroyed"]
