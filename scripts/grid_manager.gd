@@ -25,10 +25,6 @@ func _ready():
 	spawn_pieces()
 	pass
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_touch"):
-		print(grid.pixel_to_grid(get_global_mouse_position()))
-
 func make_2d_array():
 	var array = [];
 	for i in grid.width:
@@ -114,7 +110,8 @@ func destroy_matched():
 			if all_pieces[i][j] != null and all_pieces[i][j].matched:
 				destroyed.append({
 					"color": all_pieces[i][j].getColor(),
-					"pos": all_pieces[i][j].global_position
+					"pos": all_pieces[i][j].global_position,
+					"colorType": all_pieces[i][j].color
 				});
 				all_pieces[i][j].queue_free()
 				all_pieces[i][j] = null

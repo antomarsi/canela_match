@@ -10,7 +10,6 @@ func set_color(color : Color):
 	$PathFollow2D/SpriteToPoint.modulate = color
 
 func _ready():
-	print("particle spawned")
 	curve.add_point(Vector2(0, 0))
 	var direction = (position - dest).normalized()
 	direction.y += rand_range(-0.5, 0.5)
@@ -23,5 +22,5 @@ func _ready():
 	tween.start()
 
 func _on_Tween_tween_completed(object, key):
-	emit_signal("finished")
+	emit_signal("finished", 1)
 	queue_free()
