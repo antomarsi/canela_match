@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/element_green_rectangle_glossy.png-99ccd46d12ea87af80ff4845ff5280bc.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

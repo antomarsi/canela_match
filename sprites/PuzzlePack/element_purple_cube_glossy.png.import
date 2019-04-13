@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/element_purple_cube_glossy.png-db2a2289468d132e2a95bfc341a32608.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

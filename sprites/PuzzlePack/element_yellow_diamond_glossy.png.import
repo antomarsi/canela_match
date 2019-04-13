@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/element_yellow_diamond_glossy.png-fbf6d567aa066c9007a18b8ab5f9b9e8.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

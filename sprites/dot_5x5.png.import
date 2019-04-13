@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/dot_5x5.png-ba2d4481c5a43c79ba9f3eba504a6f99.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

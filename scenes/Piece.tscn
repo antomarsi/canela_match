@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Pivot.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Ghost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/pivot.png" type="Texture" id=3]
+[ext_resource path="res://music/sounds/Explosion.wav" type="AudioStream" id=4]
+[ext_resource path="res://music/sounds/Swap.wav" type="AudioStream" id=5]
+[ext_resource path="res://music/sounds/Powerup.wav" type="AudioStream" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Active"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 0.5, 2, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 2.2, 2.2 ), Vector2( 1.8, 1.8 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Bump"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5.04199, -5.042 ), Vector2( -3.15125, 3.15124 ), Vector2( 5.04199, 0.630241 ), Vector2( -3.78149, -3.15125 ), Vector2( 4.41174, 5.98736 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ) ]
+}
+
+[node name="Piece" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+ghost_scene = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+texture_mode = 0
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivot"]
+anims/Active = SubResource( 1 )
+anims/Bump = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+
+[node name="Bump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+pitch_scale = 2.0
+
+[node name="Move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="End" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="GhostTimer" type="Timer" parent="."]
+pause_mode = 2
+wait_time = 0.01
+
+[connection signal="tween_step" from="Tween" to="." method="_on_Tween_tween_step"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_GhostTimer_timeout"]

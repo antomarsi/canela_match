@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/particleStar.png-69f7009cc122c1ad0e2d5a8d03f9b62d.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
