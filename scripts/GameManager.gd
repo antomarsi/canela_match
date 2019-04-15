@@ -29,6 +29,8 @@ func pivot_reched_end(pivot):
 			next_level()
 		else:
 			game_over()
+	else:
+		pieces[0].set_active(true)
 
 func game_over():
 	set_process(false)
@@ -36,6 +38,8 @@ func game_over():
 	
 func reset_level():
 	set_process(false)
+	$Transition/AnimationPlayer.play("transition_out")
+	yield($Transition/AnimationPlayer, "animation_finished")
 	get_tree().reload_current_scene()
 	pass
 
@@ -43,5 +47,4 @@ func next_level():
 	set_process(false)
 	$Transition/AnimationPlayer.play("transition_out")
 	yield($Transition/AnimationPlayer, "animation_finished")
-	print("go to next level")
 	get_tree().change_scene_to(next_level)

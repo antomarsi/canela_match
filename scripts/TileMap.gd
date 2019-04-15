@@ -2,8 +2,6 @@ extends TileMap
 
 enum CELL_TYPE { UNFILED, FILLED, END, ACTOR }
 
-signal map_is_full
-
 func _ready():
 	for node in get_children():
 		if node.get("type") and node.type == CELL_TYPE.ACTOR:

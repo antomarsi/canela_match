@@ -45,15 +45,15 @@ position = Vector2( 512, 288 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 2
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="popup" type="Sprite" parent="Cenario"]
-position = Vector2( 208, 464 )
-scale = Vector2( 6, 6 )
+position = Vector2( 170, 476 )
+scale = Vector2( 5, 5 )
 z_index = 2
 texture = ExtResource( 6 )
 
@@ -61,6 +61,7 @@ texture = ExtResource( 6 )
 position = Vector2( 1.33334, -1.33334 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
+frame = 3
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]

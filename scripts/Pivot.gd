@@ -12,6 +12,7 @@ export (COLOR) var color = COLOR.PURPLE
 
 onready var Grid : TileMap = get_parent()
 onready var piece = $Pivot
+onready var sprite = $Pivot/Sprite
 onready var anim : AnimationPlayer = $Pivot/AnimationPlayer
 onready var line : Line2D = $Line2D
 
@@ -79,7 +80,6 @@ func _on_Tween_tween_step(object, key, elapsed, value):
 
 func _on_GhostTimer_timeout():
 	var ghost = ghost_scene.instance()
-	var sprite = piece.get_node("Sprite")
 	ghost.modulate = sprite.modulate
 	ghost.scale = sprite.scale
 	ghost.texture = sprite.texture
