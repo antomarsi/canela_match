@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg-2264a30b40e0b74f761aa37f1e7a6710.oggstr"
+
+[deps]
+
+source_file="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg"
+dest_files=[ "res://.import/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg-2264a30b40e0b74f761aa37f1e7a6710.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
