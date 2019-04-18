@@ -1,5 +1,7 @@
 extends Spatial
 
+export (PackedScene) var next_level
+
 var verts = []
 var faces = []
 var numx = 20
@@ -13,6 +15,9 @@ onready var face3 = $ImmediateGeometry5
 onready var edge3 = $ImmediateGeometry6
 onready var sky = $ImmediateGeometry7
 onready var cam = $Camera
+onready var transition = $Control/Transition/AnimationPlayer
+var can_go_to_new_scene = false
+var going_next_scene = false
 
 func draw_faces(face:ImmediateGeometry, vertices, indices):
 	face.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -71,9 +76,9 @@ func _ready():
 	draw_grid(edge2, verts, faces); edge2.scale = Vector3(1,1,-1)
 	draw_faces(face3, verts, faces); face3.translation = Vector3(0,0,-78)
 	draw_grid(edge3, verts, faces); edge3.translation = Vector3(0,0,-78)
-	$Transition/AnimationPlayer.connect("animation_finished", self, "on_animation_finished")
-	$Transition/AnimationPlayer.playback_speed = 0.25
-	$Transition/AnimationPlayer.play("transition_in")
+	transition.connect("animation_finished", self, "on_animation_finished")
+	transition.playback_speed = 0.25
+	transition.play("transition_in")
 
 func on_animation_finished(anim_name):
 	if anim_name == "transition_in":
@@ -89,3 +94,12 @@ func _process(delta):
 	else:
 		cam.translation = Vector3(10,0.5,39)
 		sky.translation = Vector3(10,-2,0)
+	if Input.is_key_pressed(KEY_SPACE) and can_go_to_new_scene and not going_next_scene:
+		going_next_scene = true
+		next_level()
+
+func next_level():
+	transition.playback_speed = 1
+	transition.play("transition_out")
+	yield(transition, "animation_finished")
+	get_tree().change_scene_to(next_level)

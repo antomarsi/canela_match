@@ -6,7 +6,6 @@ enum CELL_TYPE { UNFILED, FILLED, END, ACTOR }
 var pieces = []
 
 func _ready():
-	print("START LEVEL")
 	$Transition/AnimationPlayer.play("transition_in")
 	for node in Grid.get_children():
 		if node.type == CELL_TYPE.ACTOR:
@@ -45,6 +44,7 @@ func reset_level():
 
 func next_level():
 	set_process(false)
+	$Music.fade_out()
 	$Transition/AnimationPlayer.play("transition_out")
 	yield($Transition/AnimationPlayer, "animation_finished")
 	get_tree().change_scene_to(next_level)

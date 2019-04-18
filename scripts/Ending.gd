@@ -31,6 +31,7 @@ func _process(delta):
 		yield(tween, "tween_completed")
 	timer.start(3)
 	yield(timer, "timeout")
+	$Music.fade_out()
 	tween.interpolate_property(black_rect, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	yield(tween, "tween_completed")
 	get_tree().change_scene_to(next_scene)

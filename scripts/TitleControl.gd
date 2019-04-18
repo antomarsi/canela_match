@@ -6,6 +6,7 @@ onready var sprite = $TextureRect
 func _ready():
 	$TextureRect.visible = false
 	$Label.visible = false
+	$Button.visible = false
 	$TextureRect2.modulate = Color(0,0,0,0)
 
 func play():
@@ -18,6 +19,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	$Timer.stop()
 	$Label.visible = true
 	$Label/AnimationPlayer.play("blink")
+	get_parent().can_go_to_new_scene = true
+	$Button.visible = true
 
 func _on_Timer_timeout():
 	var ghost = ghost_scene.instance()
@@ -29,3 +32,6 @@ func _on_Timer_timeout():
 	ghost.margin_right = sprite.margin_right
 	ghost.margin_top = sprite.margin_top
 	add_child(ghost)
+
+func _on_Button_pressed():
+	OS.shell_open("https://steviasphere.bandcamp.com/")

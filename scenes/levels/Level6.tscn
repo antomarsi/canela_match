@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/Level7.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=18]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg" type="AudioStream" id=19]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -169,7 +171,7 @@ position = Vector2( 512, 288 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -186,6 +188,7 @@ position = Vector2( 1.19999, 0.799988 )
 scale = Vector2( 0.242593, 0.242593 )
 frames = SubResource( 2 )
 animation = "New Anim"
+frame = 3
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -275,6 +278,9 @@ margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
+
+[node name="Music" parent="." instance=ExtResource( 18 )]
+stream = ExtResource( 19 )
 
 
 [editable path="TileMap/1E"]

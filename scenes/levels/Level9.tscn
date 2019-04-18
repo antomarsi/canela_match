@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/dither.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -224,7 +225,7 @@ position = Vector2( 512, 288 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 2
+frame = 1
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -353,6 +354,8 @@ margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
+
+[node name="Music" parent="." instance=ExtResource( 15 )]
 
 
 [editable path="TileMap/1E"]

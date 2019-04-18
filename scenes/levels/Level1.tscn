@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://scenes/levels/Level2.tscn" type="PackedScene" id=2]
@@ -18,9 +18,12 @@
 [ext_resource path="res://scripts/TileMap.gd" type="Script" id=16]
 [ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=19]
+[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=21]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 03 Waiting for the bus.ogg" type="AudioStream" id=22]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -28,7 +31,7 @@ animations = [ {
 "speed": 4.01
 } ]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
@@ -36,11 +39,18 @@ animations = [ {
 "speed": 3.0
 } ]
 
+[sub_resource type="DynamicFont" id=5]
+size = 36
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 19 )
+
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
 next_level = ExtResource( 2 )
 
 [node name="Cenario" type="Node2D" parent="."]
+editor/display_folded = true
 z_index = -10
 
 [node name="Sprite" type="Sprite" parent="Cenario"]
@@ -51,7 +61,7 @@ centered = false
 [node name="Background" type="AnimatedSprite" parent="Cenario"]
 position = Vector2( 512, 288 )
 scale = Vector2( 16, 16 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "New Anim"
 frame = 3
 playing = true
@@ -68,11 +78,11 @@ texture = ExtResource( 8 )
 [node name="car" type="AnimatedSprite" parent="Cenario/popup"]
 position = Vector2( 1.33334, -1.33334 )
 scale = Vector2( 0.3, 0.3 )
-frames = SubResource( 2 )
-frame = 5
+frames = SubResource( 4 )
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0.784314 )
 z_index = -9
 tile_set = ExtResource( 15 )
@@ -104,13 +114,27 @@ modulate = Color( 0.403922, 0.596078, 0.929412, 1 )
 position = Vector2( 512, 288 )
 current = true
 
-[node name="Transition" parent="." instance=ExtResource( 19 )]
+[node name="Label" type="Label" parent="."]
+margin_left = 344.0
+margin_top = 424.0
+margin_right = 624.0
+margin_bottom = 483.0
+custom_fonts/font = SubResource( 5 )
+text = "WASD / Arrows to move
+R to restart"
+
+[node name="Transition" parent="." instance=ExtResource( 20 )]
 margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
 
+[node name="Music" parent="." instance=ExtResource( 21 )]
+stream = ExtResource( 22 )
+
 
 [editable path="TileMap/EndPoint"]
 
 [editable path="TileMap/BluePiece"]
+
+[editable path="Music"]

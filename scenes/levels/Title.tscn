@@ -1,13 +1,14 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/levels/Title.gd" type="Script" id=1]
-[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 01 Packing your things.ogg" type="AudioStream" id=2]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 01 Packing your things.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scripts/TitleControl.gd" type="Script" id=4]
 [ext_resource path="res://scenes/GhostTitle.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/title.png" type="Texture" id=6]
 [ext_resource path="res://music/sounds/intro.wav" type="AudioStream" id=7]
 [ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -34,7 +35,7 @@ shader_param/em = Vector3( 0, 0, 1 )
 shader = SubResource( 1 )
 shader_param/em = Vector3( 1, 0, 0 )
 
-[sub_resource type="Shader" id=10]
+[sub_resource type="Shader" id=6]
 code = "shader_type spatial;
 
 uniform vec3 em = vec3(0,0,0);
@@ -43,15 +44,15 @@ void  fragment() {
 	EMISSION = em;
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 10 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 shader_param/em = Vector3( 0, 0, 1 )
 
-[sub_resource type="ShaderMaterial" id=11]
-shader = SubResource( 10 )
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 6 )
 shader_param/em = Vector3( 1, 0, 0 )
 
-[sub_resource type="Shader" id=7]
+[sub_resource type="Shader" id=9]
 code = "shader_type spatial;
 render_mode diffuse_toon, cull_front;
 
@@ -63,16 +64,16 @@ void  fragment() {
 	EMISSION = mix(sky, sun, sun_size);
 }"
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = SubResource( 7 )
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
 
-[sub_resource type="Environment" id=9]
+[sub_resource type="Environment" id=11]
 background_mode = 1
 glow_enabled = true
 glow_bloom = 1.0
 glow_blend_mode = 0
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "in"
 length = 4.0
 step = 0.01
@@ -125,15 +126,15 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 16.95, 10.33 ) ]
 }
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=14]
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "blink"
 length = 2.0
 loop = true
@@ -150,8 +151,15 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=16]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 8 )
+
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
+next_level = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
 fov = 65.0
@@ -171,22 +179,20 @@ material_override = SubResource( 4 )
 material_override = SubResource( 5 )
 
 [node name="ImmediateGeometry5" type="ImmediateGeometry" parent="."]
-material_override = SubResource( 6 )
+material_override = SubResource( 7 )
 
 [node name="ImmediateGeometry6" type="ImmediateGeometry" parent="."]
-material_override = SubResource( 11 )
-
-[node name="ImmediateGeometry7" type="ImmediateGeometry" parent="."]
 material_override = SubResource( 8 )
 
+[node name="ImmediateGeometry7" type="ImmediateGeometry" parent="."]
+material_override = SubResource( 10 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 9 )
+environment = SubResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 autoplay = true
-
-[node name="Transition" parent="." instance=ExtResource( 3 )]
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
@@ -195,6 +201,7 @@ script = ExtResource( 4 )
 ghost_scene = ExtResource( 5 )
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -16.0
@@ -206,7 +213,7 @@ expand = true
 stretch_mode = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/TextureRect"]
-anims/in = SubResource( 13 )
+anims/in = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="Control"]
 wait_time = 0.1
@@ -230,6 +237,7 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="Control"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -238,13 +246,24 @@ margin_left = -219.0
 margin_top = 176.0
 margin_right = 219.0
 margin_bottom = 224.0
-custom_styles/normal = SubResource( 14 )
-custom_fonts/font = SubResource( 15 )
+custom_styles/normal = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
 text = "Press Space to Continue"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label"]
-anims/blink = SubResource( 16 )
+anims/blink = SubResource( 15 )
+
+[node name="Button" type="Button" parent="Control"]
+margin_top = 10.33
+margin_right = 560.0
+margin_bottom = 66.33
+custom_fonts/font = SubResource( 16 )
+text = "Music by Stevia Sphere (Click here to go to bandcamp)"
+flat = true
+
+[node name="Transition" parent="Control" instance=ExtResource( 9 )]
 
 [connection signal="animation_finished" from="Control/TextureRect/AnimationPlayer" to="Control" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_Timer_timeout"]
+[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]
