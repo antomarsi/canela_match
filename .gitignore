@@ -3,6 +3,8 @@
 .import/
 export.cfg
 export_presets.cfg
+debug.log
 
 # Mono-specific ignores
 .mono/
+build
