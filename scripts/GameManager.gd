@@ -1,6 +1,6 @@
 extends Node2D
 
-export (PackedScene) var next_level
+export (String) var next_level
 onready var Grid = $TileMap
 enum CELL_TYPE { UNFILED, FILLED, END, ACTOR }
 var pieces = []
@@ -47,4 +47,4 @@ func next_level():
 	$Music.fade_out()
 	$Transition/AnimationPlayer.play("transition_out")
 	yield($Transition/AnimationPlayer, "animation_finished")
-	get_tree().change_scene_to(next_level)
+	get_tree().change_scene(next_level)

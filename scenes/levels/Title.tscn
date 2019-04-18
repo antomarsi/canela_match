@@ -1,14 +1,13 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://scenes/levels/Title.gd" type="Script" id=1]
-[ext_resource path="res://scenes/levels/Level1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 01 Packing your things.ogg" type="AudioStream" id=3]
-[ext_resource path="res://scripts/TitleControl.gd" type="Script" id=4]
-[ext_resource path="res://scenes/GhostTitle.tscn" type="PackedScene" id=5]
-[ext_resource path="res://sprites/title.png" type="Texture" id=6]
-[ext_resource path="res://music/sounds/intro.wav" type="AudioStream" id=7]
-[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/Title.gd" type="Script" id=1]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 01 Packing your things.ogg" type="AudioStream" id=2]
+[ext_resource path="res://scripts/TitleControl.gd" type="Script" id=3]
+[ext_resource path="res://scenes/GhostTitle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/title.png" type="Texture" id=5]
+[ext_resource path="res://music/sounds/intro.wav" type="AudioStream" id=6]
+[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -132,7 +131,7 @@ tracks/3/keys = {
 size = 48
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=15]
 resource_name = "blink"
@@ -155,11 +154,11 @@ tracks/0/keys = {
 size = 28
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+font_data = ExtResource( 7 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
-next_level = ExtResource( 2 )
+next_level = "res://scenes/levels/Level1.tscn"
 
 [node name="Camera" type="Camera" parent="."]
 fov = 65.0
@@ -191,14 +190,14 @@ material_override = SubResource( 10 )
 environment = SubResource( 11 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 autoplay = true
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
-ghost_scene = ExtResource( 5 )
+script = ExtResource( 3 )
+ghost_scene = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 editor/display_folded = true
@@ -208,7 +207,7 @@ margin_left = -16.0
 margin_top = -432.0
 margin_right = -16.0002
 margin_bottom = -432.0
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
@@ -219,7 +218,7 @@ anims/in = SubResource( 12 )
 wait_time = 0.1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
-stream = ExtResource( 7 )
+stream = ExtResource( 6 )
 volume_db = -14.345
 pitch_scale = 0.5
 
@@ -232,7 +231,7 @@ margin_left = 16.95
 margin_top = 10.33
 margin_right = 16.7207
 margin_bottom = 10.21
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 6
 
@@ -262,7 +261,7 @@ custom_fonts/font = SubResource( 16 )
 text = "Music by Stevia Sphere (Click here to go to bandcamp)"
 flat = true
 
-[node name="Transition" parent="Control" instance=ExtResource( 9 )]
+[node name="Transition" parent="Control" instance=ExtResource( 8 )]
 
 [connection signal="animation_finished" from="Control/TextureRect/AnimationPlayer" to="Control" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_Timer_timeout"]

@@ -31,6 +31,7 @@ margin_top = 20.0
 margin_right = -20.0
 margin_bottom = -20.0
 script = ExtResource( 1 )
+next_scene = "res://scenes/levels/Title.tscn"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_right = 984.0
@@ -88,8 +89,8 @@ margin_right = 984.0
 margin_bottom = 342.0
 custom_fonts/font = SubResource( 2 )
 text = "
-Music by Stevia Sphere (link on Title Screen):
-"
+Music by Stevia Sphere (link on Title Screen)
+Fonts by Kenney"
 align = 1
 autowrap = true
 

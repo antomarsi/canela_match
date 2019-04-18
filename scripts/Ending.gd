@@ -1,6 +1,6 @@
 extends Control
 
-export (PackedScene) var next_scene
+export (String) var next_scene
 
 onready var timer = $"../Timer"
 onready var tween = $"../Tween"
@@ -11,6 +11,7 @@ onready var texts = [
 		$VBoxContainer/Thanks,
 		$VBoxContainer/Credits,
 		$VBoxContainer/Art_code,
+		$VBoxContainer/Art_code2,
 		$VBoxContainer/Ocs
 	]
 var finished = false
@@ -31,12 +32,13 @@ func _process(delta):
 		yield(tween, "tween_completed")
 	timer.start(3)
 	yield(timer, "timeout")
-	$Music.fade_out()
-	tween.interpolate_property(black_rect, "modulate", Color(1,1,1,0), Color(1,1,1,1), 1, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
+	$"../Music".fade_out()
+	tween.interpolate_property(black_rect, "color", Color(0,0,0,0), Color(0,0,0,1), 1, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
+	tween.start()
 	yield(tween, "tween_completed")
-	get_tree().change_scene_to(next_scene)
+	get_tree().change_scene(next_scene)
 
 func _on_Tween_tween_step(object, key, elapsed, value):
-	if last_value != int(value):
+	if object != black_rect and last_value != int(value):
 		last_value = int(value)
 		sound.play()

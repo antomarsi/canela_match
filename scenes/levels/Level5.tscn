@@ -1,28 +1,27 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
-[ext_resource path="res://scenes/levels/Level6.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sprites/dither.png" type="Texture" id=3]
-[ext_resource path="res://sprites/background/arm_bg1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/background/arm_bg2.png" type="Texture" id=5]
-[ext_resource path="res://sprites/background/arm_bg3.png" type="Texture" id=6]
-[ext_resource path="res://sprites/background/arm_bg4.png" type="Texture" id=7]
-[ext_resource path="res://sprites/popup.png" type="Texture" id=8]
-[ext_resource path="res://sprites/levels/level-2-louli1.png" type="Texture" id=9]
-[ext_resource path="res://sprites/levels/level-2-louli2.png" type="Texture" id=10]
-[ext_resource path="res://sprites/levels/level-2-louli3.png" type="Texture" id=11]
-[ext_resource path="res://sprites/levels/level-2-louli4.png" type="Texture" id=12]
-[ext_resource path="res://tileset.tres" type="TileSet" id=13]
-[ext_resource path="res://scripts/TileMap.gd" type="Script" id=14]
-[ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=18]
-[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg" type="AudioStream" id=19]
+[ext_resource path="res://sprites/dither.png" type="Texture" id=2]
+[ext_resource path="res://sprites/background/arm_bg1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/background/arm_bg2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/background/arm_bg3.png" type="Texture" id=5]
+[ext_resource path="res://sprites/background/arm_bg4.png" type="Texture" id=6]
+[ext_resource path="res://sprites/popup.png" type="Texture" id=7]
+[ext_resource path="res://sprites/levels/level-2-louli1.png" type="Texture" id=8]
+[ext_resource path="res://sprites/levels/level-2-louli2.png" type="Texture" id=9]
+[ext_resource path="res://sprites/levels/level-2-louli3.png" type="Texture" id=10]
+[ext_resource path="res://sprites/levels/level-2-louli4.png" type="Texture" id=11]
+[ext_resource path="res://tileset.tres" type="TileSet" id=12]
+[ext_resource path="res://scripts/TileMap.gd" type="Script" id=13]
+[ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=17]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg" type="AudioStream" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "New Anim",
 "speed": 4.01
@@ -30,7 +29,7 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "New Anim",
 "speed": 5.0
@@ -156,14 +155,14 @@ tracks/1/keys = {
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
-next_level = ExtResource( 2 )
+next_level = "res://scenes/levels/Level6.tscn"
 
 [node name="Cenario" type="Node2D" parent="."]
 z_index = -10
 
 [node name="Sprite" type="Sprite" parent="Cenario"]
 scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 centered = false
 
 [node name="Background" type="AnimatedSprite" parent="Cenario"]
@@ -180,25 +179,25 @@ __meta__ = {
 position = Vector2( 200.222, 459 )
 scale = Vector2( 6, 6 )
 z_index = 2
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 
 [node name="car" type="AnimatedSprite" parent="Cenario/popup"]
 position = Vector2( 1.19999, 0.799988 )
 scale = Vector2( 0.242593, 0.242593 )
 frames = SubResource( 2 )
 animation = "New Anim"
-frame = 1
+frame = 3
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
 modulate = Color( 1, 1, 1, 0.784314 )
 z_index = -9
-tile_set = ExtResource( 13 )
+tile_set = ExtResource( 12 )
 format = 1
 tile_data = PoolIntArray( 65538, 0, 0, 65539, 0, 1, 65540, 0, 1, 65541, 0, 1, 65542, 0, 1, 65543, 0, 1, 65544, 0, 1, 65545, 0, 1, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 2, 131074, 0, 327686, 131075, 0, 131073, 131076, 0, 131073, 131077, 0, 131073, 131078, 0, 65540, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65538, 196610, 0, 262148, 196614, 0, 65536, 196615, 0, 65537, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 65537, 196620, 0, 65537, 196621, 0, 65538, 262146, 0, 65539, 262150, 0, 65536, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65537, 262155, 0, 65537, 262156, 0, 65537, 262157, 0, 65538, 327686, 0, 131072, 327687, 0, 131073, 327688, 0, 131073, 327689, 0, 131073, 327690, 0, 131073, 327691, 0, 131073, 327692, 0, 131073, 327693, 0, 131074 )
-script = ExtResource( 14 )
+script = ExtResource( 13 )
 
-[node name="1E" parent="TileMap" instance=ExtResource( 15 )]
+[node name="1E" parent="TileMap" instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 864, 352 )
 color = 1
@@ -206,7 +205,7 @@ color = 1
 [node name="Sprite" parent="TileMap/1E" index="0"]
 modulate = Color( 0.403922, 0.596078, 0.929412, 1 )
 
-[node name="2E" parent="TileMap" instance=ExtResource( 15 )]
+[node name="2E" parent="TileMap" instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 480, 288 )
 color = 2
@@ -214,7 +213,7 @@ color = 2
 [node name="Sprite" parent="TileMap/2E" index="0"]
 modulate = Color( 0.929412, 0.921569, 0.403922, 1 )
 
-[node name="3E" parent="TileMap" instance=ExtResource( 15 )]
+[node name="3E" parent="TileMap" instance=ExtResource( 14 )]
 editor/display_folded = true
 position = Vector2( 480, 224 )
 color = 3
@@ -222,7 +221,7 @@ color = 3
 [node name="Sprite" parent="TileMap/3E" index="0"]
 modulate = Color( 0.929412, 0.403922, 0.403922, 1 )
 
-[node name="1P" parent="TileMap" instance=ExtResource( 16 )]
+[node name="1P" parent="TileMap" instance=ExtResource( 15 )]
 editor/display_folded = true
 position = Vector2( 416, 224 )
 z_index = 1
@@ -234,7 +233,7 @@ default_color = Color( 0, 0.278431, 0.25098, 1 )
 [node name="Sprite" parent="TileMap/1P/Pivot" index="1"]
 modulate = Color( 0.403922, 0.596078, 0.929412, 1 )
 
-[node name="2P" parent="TileMap" instance=ExtResource( 16 )]
+[node name="2P" parent="TileMap" instance=ExtResource( 15 )]
 position = Vector2( 160, 96 )
 z_index = 1
 color = 2
@@ -250,7 +249,7 @@ anims/idle = SubResource( 5 )
 [node name="Sprite" parent="TileMap/2P/Pivot" index="1"]
 modulate = Color( 0.929412, 0.921569, 0.403922, 1 )
 
-[node name="3P" parent="TileMap" instance=ExtResource( 16 )]
+[node name="3P" parent="TileMap" instance=ExtResource( 15 )]
 position = Vector2( 160, 288 )
 z_index = 1
 color = 3
@@ -270,14 +269,14 @@ modulate = Color( 0.929412, 0.403922, 0.403922, 1 )
 position = Vector2( 512, 288 )
 current = true
 
-[node name="Transition" parent="." instance=ExtResource( 17 )]
+[node name="Transition" parent="." instance=ExtResource( 16 )]
 margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
 
-[node name="Music" parent="." instance=ExtResource( 18 )]
-stream = ExtResource( 19 )
+[node name="Music" parent="." instance=ExtResource( 17 )]
+stream = ExtResource( 18 )
 
 
 [editable path="TileMap/1E"]
