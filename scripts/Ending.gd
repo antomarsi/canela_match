@@ -8,11 +8,10 @@ onready var sound = $"../Blip"
 onready var black_rect = $"../ColorRect"
 onready var texts = [
 		$VBoxContainer/FirstText,
+		$VBoxContainer/blank,
 		$VBoxContainer/Thanks,
-		$VBoxContainer/Credits,
-		$VBoxContainer/Art_code,
-		$VBoxContainer/Art_code2,
-		$VBoxContainer/Ocs
+		$VBoxContainer/blank2,
+		$VBoxContainer/blank3
 	]
 var finished = false
 var index = 0
@@ -32,7 +31,8 @@ func _process(delta):
 		yield(tween, "tween_completed")
 	timer.start(3)
 	yield(timer, "timeout")
-	$"../Music".fade_out()
+	if get_parent().has_node("Music"):
+		$"../Music".fade_out()
 	tween.interpolate_property(black_rect, "color", Color(0,0,0,0), Color(0,0,0,1), 1, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")

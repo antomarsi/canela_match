@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/dither.png" type="Texture" id=2]
@@ -13,9 +13,10 @@
 [ext_resource path="res://scripts/TileMap.gd" type="Script" id=11]
 [ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=15]
-[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg" type="AudioStream" id=16]
+[ext_resource path="res://scenes/Instructions.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=16]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 02 Leaving the hotel.ogg" type="AudioStream" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -212,7 +213,7 @@ tracks/1/keys = {
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
-next_level = "res://scenes/levels/Level6.tscn"
+next_level = "res://scenes/levels/Level8.tscn"
 
 [node name="Cenario" type="Node2D" parent="."]
 z_index = -10
@@ -227,7 +228,7 @@ position = Vector2( 512, 288 )
 scale = Vector2( 16, 16 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 1
+frame = 3
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -244,6 +245,7 @@ position = Vector2( 0.507446, -11.7875 )
 scale = Vector2( 0.134664, 0.201997 )
 frames = SubResource( 2 )
 animation = "New Anim"
+frame = 1
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -251,7 +253,7 @@ modulate = Color( 1, 1, 1, 0.784314 )
 z_index = -9
 tile_set = ExtResource( 10 )
 format = 1
-tile_data = PoolIntArray( 65541, 0, 196614, 65542, 0, 262149, 65543, 0, 327683, 65544, 0, 1, 65545, 0, 1, 65546, 0, 1, 65547, 0, 1, 65548, 0, 1, 65549, 0, 2, 131073, 0, 196614, 131074, 0, 262149, 131075, 0, 327683, 131076, 0, 1, 131077, 0, 327680, 131079, 0, 65536, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 65537, 131085, 0, 65538, 196609, 0, 262148, 196611, 0, 65536, 196612, 0, 65537, 196613, 0, 131075, 196614, 0, 1, 196615, 0, 65541, 196616, 0, 65537, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 65537, 196620, 0, 65537, 196621, 0, 65538, 262145, 0, 262150, 262146, 0, 262149, 262147, 0, 393218, 262148, 0, 65540, 262149, 0, 65537, 262150, 0, 65537, 262151, 0, 65537, 262152, 0, 65537, 262153, 0, 65537, 262154, 0, 65537, 262155, 0, 65537, 262156, 0, 131076, 262157, 0, 131074, 327684, 0, 131072, 327685, 0, 131073, 327686, 0, 131073, 327687, 0, 131073, 327688, 0, 131073, 327689, 0, 131073, 327690, 0, 131073, 327691, 0, 131073, 327692, 0, 131074 )
+tile_data = PoolIntArray( 65541, 0, 1, 65542, 0, 196610, 65543, 0, 5, 65544, 0, 10, 65545, 0, 10, 65546, 0, 10, 65547, 0, 10, 65548, 0, 10, 65549, 0, 11, 131073, 0, 1, 131074, 0, 196610, 131075, 0, 5, 131076, 0, 10, 131077, 0, 65543, 131079, 0, 65544, 131080, 0, 131081, 131081, 0, 131081, 131082, 0, 131081, 131083, 0, 131081, 131084, 0, 131081, 131085, 0, 131083, 196609, 0, 65536, 196611, 0, 65544, 196612, 0, 131081, 196613, 0, 65542, 196614, 0, 10, 196615, 0, 65541, 196616, 0, 131081, 196617, 0, 131081, 196618, 0, 131081, 196619, 0, 131081, 196620, 0, 131081, 196621, 0, 131083, 262145, 0, 131073, 262146, 0, 196610, 262147, 0, 196613, 262148, 0, 131077, 262149, 0, 131081, 262150, 0, 131081, 262151, 0, 131081, 262152, 0, 131081, 262153, 0, 131081, 262154, 0, 131081, 262155, 0, 131081, 262156, 0, 131078, 262157, 0, 196619, 327684, 0, 196616, 327685, 0, 196617, 327686, 0, 196617, 327687, 0, 196617, 327688, 0, 196617, 327689, 0, 196617, 327690, 0, 196617, 327691, 0, 196617, 327692, 0, 196619 )
 script = ExtResource( 11 )
 
 [node name="1E" parent="TileMap" instance=ExtResource( 12 )]
@@ -350,14 +352,20 @@ modulate = Color( 0.772549, 0.27451, 0.909804, 1 )
 position = Vector2( 512, 288 )
 current = true
 
-[node name="Transition" parent="." instance=ExtResource( 14 )]
+[node name="Instructions" parent="." instance=ExtResource( 14 )]
+margin_left = 400.0
+margin_top = 480.0
+margin_right = 680.0
+margin_bottom = 539.0
+
+[node name="Transition" parent="." instance=ExtResource( 15 )]
 margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
 
-[node name="Music" parent="." instance=ExtResource( 15 )]
-stream = ExtResource( 16 )
+[node name="Music" parent="." instance=ExtResource( 16 )]
+stream = ExtResource( 17 )
 
 
 [editable path="TileMap/1E"]

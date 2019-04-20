@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/element_grey_square_glossy.png-4cdb094e0957d468e221983d54fbdd18.stex"
+path="res://.import/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/PuzzlePack/element_grey_square_glossy.png"
-dest_files=[ "res://.import/element_grey_square_glossy.png-4cdb094e0957d468e221983d54fbdd18.stex" ]
+source_file="res://sprites/tileset.png"
+dest_files=[ "res://.import/tileset.png-ea01ff149dac1b9c6b0d2d1c84c9f0ea.stex" ]
 
 [params]
 

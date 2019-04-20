@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/Instructions.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle_text"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.901961 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.901961 ) ]
+}
+
+[node name="Instructions" type="Label"]
+pause_mode = 2
+modulate = Color( 1, 1, 1, 0.0867536 )
+margin_left = 336.0
+margin_top = 496.0
+margin_right = 616.0
+margin_bottom = 555.0
+custom_fonts/font = SubResource( 1 )
+text = "WASD / Arrows to move
+R to restart"
+align = 1
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 2
+anims/idle_text = SubResource( 2 )
+

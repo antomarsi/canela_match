@@ -158,7 +158,7 @@ font_data = ExtResource( 7 )
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
-next_level = "res://scenes/levels/Level1.tscn"
+next_level = "res://scenes/levels/Intro.tscn"
 
 [node name="Camera" type="Camera" parent="."]
 fov = 65.0

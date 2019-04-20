@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://sprites/dither.png" type="Texture" id=2]
@@ -17,9 +17,10 @@
 [ext_resource path="res://scripts/TileMap.gd" type="Script" id=15]
 [ext_resource path="res://scenes/EndPoint.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/Piece.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=19]
-[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 03 Waiting for the bus.ogg" type="AudioStream" id=20]
+[ext_resource path="res://scenes/Instructions.tscn" type="PackedScene" id=18]
+[ext_resource path="res://scenes/Transition.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/music.tscn" type="PackedScene" id=20]
+[ext_resource path="res://music/music/Ｓｔｅｖｉａ﻿ＤＸ - II - 03 Waiting for the bus.ogg" type="AudioStream" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -131,7 +132,7 @@ texture = ExtResource( 7 )
 position = Vector2( 1.33334, -1.33334 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 2 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -139,7 +140,7 @@ modulate = Color( 1, 1, 1, 0.784314 )
 z_index = -9
 tile_set = ExtResource( 14 )
 format = 1
-tile_data = PoolIntArray( 65541, 0, 5, 65544, 0, 5, 131077, 0, 327685, 131078, 0, 1, 131079, 0, 1, 131080, 0, 327680, 196613, 0, 65536, 196614, 0, 65537, 196615, 0, 65537, 196616, 0, 65538, 262149, 0, 65536, 262150, 0, 65537, 262151, 0, 65537, 262152, 0, 65538, 327685, 0, 131072, 327686, 0, 131073, 327687, 0, 131073, 327688, 0, 131074 )
+tile_data = PoolIntArray( 65541, 0, 0, 65544, 0, 0, 131077, 0, 65540, 131078, 0, 10, 131079, 0, 10, 131080, 0, 65543, 196613, 0, 65544, 196614, 0, 131081, 196615, 0, 131081, 196616, 0, 131083, 262149, 0, 65544, 262150, 0, 131081, 262151, 0, 131081, 262152, 0, 131083, 327685, 0, 196616, 327686, 0, 196617, 327687, 0, 196617, 327688, 0, 196619 )
 script = ExtResource( 15 )
 
 [node name="EndPoint" parent="TileMap" instance=ExtResource( 16 )]
@@ -190,14 +191,20 @@ modulate = Color( 0.929412, 0.921569, 0.403922, 1 )
 position = Vector2( 512, 288 )
 current = true
 
-[node name="Transition" parent="." instance=ExtResource( 18 )]
+[node name="Instructions" parent="." instance=ExtResource( 18 )]
+margin_left = 330.0
+margin_top = 480.0
+margin_right = 610.0
+margin_bottom = 539.0
+
+[node name="Transition" parent="." instance=ExtResource( 19 )]
 margin_left = -16.0
 margin_top = -16.0
 margin_right = 1040.0
 margin_bottom = 592.0
 
-[node name="Music" parent="." instance=ExtResource( 19 )]
-stream = ExtResource( 20 )
+[node name="Music" parent="." instance=ExtResource( 20 )]
+stream = ExtResource( 21 )
 
 
 [editable path="TileMap/EndPoint"]
