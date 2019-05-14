@@ -38,7 +38,7 @@ margin_right = 984.0
 margin_bottom = 536.0
 alignment = 1
 
-[node name="FirstText" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text1" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 19.0
 margin_right = 984.0
 margin_bottom = 60.0
@@ -47,16 +47,16 @@ text = "All the circuits were fixed up."
 align = 1
 autowrap = true
 
-[node name="Thanks" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text2" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 64.0
 margin_right = 984.0
 margin_bottom = 105.0
 custom_fonts/font = SubResource( 1 )
-text = "Thank you for playing."
+text = "Thank you for playing!"
 align = 1
 autowrap = true
 
-[node name="Blank" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text3" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 109.0
 margin_right = 984.0
 margin_bottom = 150.0
@@ -64,7 +64,7 @@ custom_fonts/font = SubResource( 1 )
 align = 1
 autowrap = true
 
-[node name="Credits" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text4" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 154.0
 margin_right = 984.0
 margin_bottom = 195.0
@@ -73,7 +73,7 @@ text = "Credits:"
 align = 1
 autowrap = true
 
-[node name="Art_code" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text5" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 199.0
 margin_right = 984.0
 margin_bottom = 254.0
@@ -83,7 +83,7 @@ Antonio MArco da Silva"
 align = 1
 autowrap = true
 
-[node name="Art_code2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text6" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 258.0
 margin_right = 984.0
 margin_bottom = 342.0
@@ -94,7 +94,7 @@ Fonts by Kenney"
 align = 1
 autowrap = true
 
-[node name="Ocs" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Text7" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 346.0
 margin_right = 984.0
 margin_bottom = 517.0
@@ -123,5 +123,4 @@ color = Color( 0, 0, 0, 0 )
 
 [node name="Music" parent="." instance=ExtResource( 4 )]
 stream = ExtResource( 5 )
-
 [connection signal="tween_step" from="Tween" to="MarginContainer" method="_on_Tween_tween_step"]

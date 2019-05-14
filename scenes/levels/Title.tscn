@@ -196,6 +196,7 @@ autoplay = true
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 script = ExtResource( 3 )
 ghost_scene = ExtResource( 4 )
 
@@ -253,16 +254,19 @@ align = 1
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Control/Label"]
 anims/blink = SubResource( 15 )
 
-[node name="Button" type="Button" parent="Control"]
-margin_top = 10.33
-margin_right = 560.0
-margin_bottom = 66.33
+[node name="Button" type="Label" parent="Control"]
+pause_mode = 2
+margin_left = 17.0
+margin_top = 10.0
+margin_right = 384.0
+margin_bottom = 80.0
 custom_fonts/font = SubResource( 16 )
-text = "Music by Stevia Sphere (Click here to go to bandcamp)"
-flat = true
+text = "Music by Stevia Sphere
+https://steviasphere.bandcamp.com"
+align = 1
+valign = 1
 
 [node name="Transition" parent="Control" instance=ExtResource( 8 )]
-
+mouse_filter = 1
 [connection signal="animation_finished" from="Control/TextureRect/AnimationPlayer" to="Control" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="Control/Timer" to="Control" method="_on_Timer_timeout"]
-[connection signal="pressed" from="Control/Button" to="Control" method="_on_Button_pressed"]

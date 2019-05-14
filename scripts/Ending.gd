@@ -6,13 +6,7 @@ onready var timer = $"../Timer"
 onready var tween = $"../Tween"
 onready var sound = $"../Blip"
 onready var black_rect = $"../ColorRect"
-onready var texts = [
-		$VBoxContainer/FirstText,
-		$VBoxContainer/blank,
-		$VBoxContainer/Thanks,
-		$VBoxContainer/blank2,
-		$VBoxContainer/blank3
-	]
+onready var texts = $VBoxContainer.get_children()
 var finished = false
 var index = 0
 var last_value = 0
@@ -39,6 +33,8 @@ func _process(delta):
 	get_tree().change_scene(next_scene)
 
 func _on_Tween_tween_step(object, key, elapsed, value):
+	print(value)
 	if object != black_rect and last_value != int(value):
 		last_value = int(value)
-		sound.play()
+		if last_value > 0:
+			sound.play()

@@ -32,6 +32,3 @@ func _on_Timer_timeout():
 	ghost.margin_right = sprite.margin_right
 	ghost.margin_top = sprite.margin_top
 	add_child(ghost)
-
-func _on_Button_pressed():
-	OS.shell_open("https://steviasphere.bandcamp.com/")
